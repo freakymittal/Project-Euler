@@ -36,8 +36,8 @@ const product = (grid, i, j, range = 4) => {
     }
 };
 
-const find_max_product = (grid, i, j) => {
-    return Math.max(...Object.values(product(grid, i, j)));
+const find_max_product = (grid, i, j, range) => {
+    return Math.max(...Object.values(product(grid, i, j, range)));
 }
 
 const fn = (grid, n_numbers = 2) => {
@@ -50,7 +50,7 @@ const fn = (grid, n_numbers = 2) => {
     while (x < (x_max - 1)) {
         y = 0;
         while (y < y_max) {
-            const product = find_max_product(grid, x, y);
+            const product = find_max_product(grid, x, y, n_numbers);
             if (product > max_product) {
                 max_product = product;
             }
@@ -61,4 +61,4 @@ const fn = (grid, n_numbers = 2) => {
     return max_product;
 };
 
-console.log(fn(grid))
+console.log(fn(grid, 4))
